@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             title
             description
             author
+            keywords
           }
         }
       }
@@ -69,10 +70,10 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
       ]
         .concat(
-          keywords.length > 0
+          site.siteMetadata.keywords.length > 0
             ? {
                 name: `keywords`,
-                content: keywords.join(`, `),
+                content:  site.siteMetadata.keywords.join(`, `),
               }
             : []
         )

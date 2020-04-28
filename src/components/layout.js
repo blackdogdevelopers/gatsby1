@@ -42,6 +42,7 @@ const Layout = ({ children, pageInfo }) => (
           </Row>
         </Container>
         <Container fluid className="px-0">
+          
           <Row noGutters>
             <Col className="footer-col">
               <footer>

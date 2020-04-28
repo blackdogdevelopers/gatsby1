@@ -1,22 +1,14 @@
+const config = require('./data/config');
+
 module.exports = {
-  pathPrefix: "/gatsby-react-bootstrap-starter",
   siteMetadata: {
-    title: `Gatsby React Bootstrap Starter`,
-    description: `A starter that includes react-bootstrap and react-icons, along with SASS compilation.`,
-    author: `Billy Jacoby`,
+    title: config.siteTitle,
+    description: config.siteDescription,
+    author: config.siteAuthor,
+    keywords: config.siteKeywords,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-plugin-sass`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -28,8 +20,24 @@ module.exports = {
         display: `minimal-ui`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/data/assets/img`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `questions`,
+        path: `${__dirname}/data/questions`,
+      },
+    },
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
   ],
 }
